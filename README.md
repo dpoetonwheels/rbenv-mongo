@@ -86,4 +86,22 @@ Step 5. Rebuild the shim executables. You should do this any time you
    ~~~ sh
    $ rbenv rehash
    ~~~
-  
+
+Step 6. If you want to take a look at which ruby versions you currently have, do the following: 
+
+   ~~~ sh
+   $ rbenv versions
+   ~~~
+
+You might see something as follows:
+
+$ rbenv versions
+  system
+  1.9.3-p194
+* 2.0.0-p0 (set by /Users/devang.desai/.ruby-version)
+   
+The * indicates your current ruby version. You can also update it as follows:
+
+   ~~~ sh
+   $ rbenv local 1.9.3-p194
+   ~~~
