@@ -60,10 +60,10 @@ Step 4. Select the ruby version from ruby-build using the following commands:
   
   For example,
   ~~~ sh
-  $ rbenv versions
       1.8.7-p352
       1.9.2-p290
-    * 1.9.3-p327 (set by /Users/devang.desai/.rbenv/version)
+      1.9.3-p327
+      2.0.0-p0
       jruby-1.7.1
       rbx-1.2.4
       ree-1.8.7-2011.03
