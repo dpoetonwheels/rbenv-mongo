@@ -83,7 +83,7 @@ Step 5. Rebuild the shim executables. You should do this any time you
    install a new Ruby executable (for example, when installing a new
    Ruby version, or when installing a gem that provides a command).
 
-    ~~~ sh
-    $ rbenv rehash
-    ~~~
+   ~~~ sh
+   $ rbenv rehash
+   ~~~
   
