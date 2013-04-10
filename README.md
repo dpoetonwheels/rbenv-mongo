@@ -15,7 +15,7 @@ Steps for setting up ruby environment using rbenv.
    
 - If you are on a Mac OS older than Mountain Lion, and Lion then download 
   the sepcific xcode from [Source](https://developer.apple.com/xcode/)
-   
+
 3. Homebrew (The "Install Homebrew" section at the following URL - [Source](http://mxcl.github.io/homebrew/) is all you need)
 
 For a detailed reference of all the steps till Step 5 please look at the following:
