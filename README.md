@@ -149,4 +149,109 @@ Step 3. Create a rails app without active record and start using mongodb instead
    $ rails new YOUR_APP_NAME --skip-active-record
    ~~~
 
+Step 4. Use a mongodb rails gem in your Gemfile 
 
+Once the new application is created you can choose from one of the several mongodb rails gems out there 
+as mongo_mapper, mongoid, mongodoc, etc.
+
+We would use mongoid as follows:
+
+Add the following to your Gemfile:
+(Mongoid requires bson_ext)
+
+   ~~~ sh
+   # ODM
+   gem "mongoid", ">= 3.0.3"
+   gem 'bson_ext', '~> 1.8.3'
+   
+   # For Test Frameworks (BDD, TDD)
+   gem "mongoid-rspec", ">= 1.4.6", :group => :test
+   ~~~   
+
+Step 5. Do a bundle update as follows:
+
+   ~~~ sh
+   $ bundle update
+   ~~~   
+
+Step 6. Create a default mongoid.yml for mongodb configuration.
+
+Once you have the required gems, you can create a sample mongoid.yml under YOUR_APP_NAME/config folder or 
+let Rails create one for you using the following command:
+
+   ~~~ sh
+   $ rails g mongoid:config
+   ~~~   
+
+The above would generate something as follows:
+
+   ~~~ sh
+   development:
+      database: YOUR_APP_NAME_development
+      hosts:
+        - localhost:27017
+   
+   test:
+      database: YOUR_APP_NAME_test
+      hosts:
+        - localhost:27017
+   
+# set these environment variables on your prod server
+production:
+  host: <%= ENV['MONGOID_HOST'] %>
+  port: <%= ENV['MONGOID_PORT'] %>
+  username: <%= ENV['MONGOID_USERNAME'] %>
+  password: <%= ENV['MONGOID_PASSWORD'] %>
+  database: <%= ENV['MONGOID_DATABASE'] %>
+  # slaves:
+  #   - host: slave1.local
+  #     port: 27018
+  #   - host: slave2.local
+  #     port: 27019
+
+   ~~~   
+
+Please make sure you have a default sessions which was not generated using "rails g mongoid:config". Your new mongoid.yml
+file should look like the following:
+
+~~~ sh
+development:
+  sessions:
+    default:
+      database: YOUR_APP_NAME_development
+      hosts:
+        - localhost:27017
+   
+test:
+ sessions:
+    default:
+      database: YOUR_APP_NAME_test
+      hosts:
+        - localhost:27017
+
+# set these environment variables on your prod server
+production:
+  host: <%= ENV['MONGOID_HOST'] %>
+  port: <%= ENV['MONGOID_PORT'] %>
+  username: <%= ENV['MONGOID_USERNAME'] %>
+  password: <%= ENV['MONGOID_PASSWORD'] %>
+  database: <%= ENV['MONGOID_DATABASE'] %>
+  # slaves:
+  #   - host: slave1.local
+  #     port: 27018
+  #   - host: slave2.local
+  #     port: 27019
+
+   ~~~   
+
+Now, you are all set to use the mongoid gem. Have a mongod instance running and you can verify connecting to it
+using the following command
+
+   ~~~ sh
+   $ mongo
+   ~~~   
+   
+For a detailed mongoid configuration you can refer to the following 2 URL's:
+
+[Source](http://mongoid.org/en/mongoid/docs/installation.html)
+[Source](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/)
