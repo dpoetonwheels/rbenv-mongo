@@ -1,7 +1,7 @@
 rbenv
 ===========
 
-Steps for setting up ruby environment using rbenv and using mongo.
+Steps for setting up ruby environment using rbenv.
 
 # Setup a ruby environment using rbenv
 ### Steps to create a ruby environment using rbenv and then adding mongodb related gems
