@@ -1,4 +1,4 @@
-rbenv-mongo
+rbenv
 ===========
 
 Steps for setting up ruby environment using rbenv and using mongo.
@@ -105,3 +105,48 @@ The * indicates your current ruby version. You can also update it as follows:
    ~~~ sh
    $ rbenv local 1.9.3-p194
    ~~~
+
+* * *
+
+# Setup mongodb using existing rbenv ruby environment.
+### Steps to add mongodb and related gems to your application
+
+* * *
+
+## Requirements
+
+1. rbenv and ruby environment as shown above.
+
+2. rubygems and rails. If not available using rbenv then do the following to get rubygems and rails:
+   
+   ~~~ sh
+   $ gem update --system
+   $ gem install rails
+   ~~~
+
+## Installation Steps
+
+If you are using brew or macports the following URL would be helpful:
+
+[Source](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/)
+
+Step 1. Type the following commands in a terminal to install mongodb
+
+   ~~~ sh
+   $ brew update
+   $ brew install mongodb
+   ~~~
+
+Step 2. Verify that you have mongodb instance using the following command:
+
+   ~~~ sh
+   $ mongod
+   ~~~   
+
+Step 3. Create a rails app without active record and start using mongodb instead in your Gemfile
+
+   ~~~ sh
+   $ rails new YOUR_APP_NAME --skip-active-record
+   ~~~
+
+
