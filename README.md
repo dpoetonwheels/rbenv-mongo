@@ -138,7 +138,7 @@ Step 1. Type the following commands in a terminal to install mongodb
 
  If you need a specific mongodb version or you want to switch between mongodb versions do the following:
  
- a) You can verify which mongodb versions are available for you to swtich to using the following command:
+ a) You can verify which mongodb versions are available for you to swtich to with the following:
  
    ~~~ sh
    $ brew versions mongodb
