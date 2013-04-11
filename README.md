@@ -133,6 +133,66 @@ Step 1. Type the following commands in a terminal to install mongodb
    $ brew install mongodb
    ~~~
 
+* * *
+### Additional Note:
+
+ If you need a specific mongodb version or you want to switch between mongodb versions do the following:
+ 
+ a) You can verify which mongodb versions are available for you to swtich to using the following command:
+ 
+   ~~~ sh
+   $ brew versions mongodb
+   ~~~
+   
+   You should see something as follows:
+   ~~~ sh
+2.4.1-x86_64 git checkout 74062f3 /usr/local/Library/Formula/mongodb.rb
+2.4.0-x86_64 git checkout 4e36c7c /usr/local/Library/Formula/mongodb.rb
+2.2.3-x86_64 git checkout 527611d /usr/local/Library/Formula/mongodb.rb
+2.2.2-x86_64 git checkout fe5bc4d /usr/local/Library/Formula/mongodb.rb
+2.2.1-x86_64 git checkout 5825f62 /usr/local/Library/Formula/mongodb.rb
+2.2.0-x86_64 git checkout 9348b10 /usr/local/Library/Formula/mongodb.rb
+2.0.7-x86_64 git checkout 6434ebb /usr/local/Library/Formula/mongodb.rb
+2.0.6-x86_64 git checkout 2553479 /usr/local/Library/Formula/mongodb.rb
+2.0.5-x86_64 git checkout c6d3538 /usr/local/Library/Formula/mongodb.rb
+2.0.4-x86_64 git checkout 3231798 /usr/local/Library/Formula/mongodb.rb
+2.0.3-x86_64 git checkout aaa3b21 /usr/local/Library/Formula/mongodb.rb
+2.0.2-x86_64 git checkout dfcc838 /usr/local/Library/Formula/mongodb.rb
+2.0.1-x86_64 git checkout e50a75a /usr/local/Library/Formula/mongodb.rb
+2.0.0-x86_64 git checkout 72cb073 /usr/local/Library/Formula/mongodb.rb
+...
+   ~~~
+   
+ b) Pick one you want and get the following script
+ [Source](https://gist.github.com/dpoetonwheels/5359742) 
+ 
+ c) You might have to chown to run the script and give it permissions. Once, done run the following command:
+   ~~~ sh
+   $ ./brewv mongodb 2.4.0                      # selected mongodb version 2.4.0
+   ~~~
+   
+   You should see something as follows and the switch would happen from 2.4.1 to 2.4.0
+   
+   ~~~ sh
+   ==> Downloading http://fastdl.mongodb.org/osx/mongodb-osx-x86_64-2.4.0.tgz
+######################################################################## 100.0%
+==> Caveats
+To have launchd start mongodb at login:
+    ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
+Then to load mongodb now:
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+Or, if you don't want/need launchctl, you can just run:
+    mongod
+==> Summary
+🍺  /usr/local/Cellar/mongodb/2.4.0-x86_64: 21 files, 314M, built in 51 seconds
+Unstaged changes after reset:
+M   Library/Formula/mongodb.rb
+mongodb 2.4.0 installed.
+You can now switch versions with 'brew switch mongodb <version>'
+~~~
+
+* * *
+
 Step 2. Verify that you have mongodb instance using the following command:
 
    ~~~ sh
